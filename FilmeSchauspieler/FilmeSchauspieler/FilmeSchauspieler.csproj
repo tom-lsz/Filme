@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,16 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Actor.cs" />
-	<Compile Include="GUI.cs">
+    <Compile Include="DataManagement\DataManagementTest.cs" />
+    <Compile Include="Model\Actor.cs" />
+    <Compile Include="GUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDataManagement.cs" />
+    <Compile Include="Helper\CSVReader.cs" />
+    <Compile Include="DataManagement\IDataManagement.cs" />
     <Compile Include="ISystemSpecification.cs" />
-    <Compile Include="Classes\Movie.cs" />
+    <Compile Include="Model\Movie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI.resx">
@@ -81,6 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="SystemSpecification\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

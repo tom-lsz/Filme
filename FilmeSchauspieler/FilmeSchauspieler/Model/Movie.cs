@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FilmeSchauspieler.Classes
+namespace FilmeSchauspieler.Model
 {
-    class Actor
+    class Movie
     {
     }
 }

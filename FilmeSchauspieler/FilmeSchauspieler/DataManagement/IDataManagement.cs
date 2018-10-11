@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FilmeSchauspieler.Classes;
+using FilmeSchauspieler.Model;
 
-namespace FilmeSchauspieler
-{
+namespace FilmeSchauspieler.DataManagement { 
     interface IDataManagement
     {
         int countActors();
