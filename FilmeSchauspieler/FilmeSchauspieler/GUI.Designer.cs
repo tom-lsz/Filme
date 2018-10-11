@@ -33,7 +33,7 @@
             this.lb_count = new System.Windows.Forms.Label();
             this.lib_all = new System.Windows.Forms.ListBox();
             this.lib_properly = new System.Windows.Forms.ListBox();
-            this.btn_apply = new System.Windows.Forms.Button();
+            this.btn_create = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -80,15 +80,15 @@
             this.lib_properly.Size = new System.Drawing.Size(191, 277);
             this.lib_properly.TabIndex = 4;
             // 
-            // btn_apply
+            // btn_create
             // 
-            this.btn_apply.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.btn_apply.Location = new System.Drawing.Point(479, 121);
-            this.btn_apply.Name = "btn_apply";
-            this.btn_apply.Size = new System.Drawing.Size(281, 65);
-            this.btn_apply.TabIndex = 5;
-            this.btn_apply.Text = "Anlegen";
-            this.btn_apply.UseVisualStyleBackColor = true;
+            this.btn_create.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btn_create.Location = new System.Drawing.Point(479, 121);
+            this.btn_create.Name = "btn_create";
+            this.btn_create.Size = new System.Drawing.Size(281, 65);
+            this.btn_create.TabIndex = 5;
+            this.btn_create.Text = "Anlegen";
+            this.btn_create.UseVisualStyleBackColor = true;
             // 
             // btn_delete
             // 
@@ -117,7 +117,7 @@
             this.ClientSize = new System.Drawing.Size(805, 524);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_apply);
+            this.Controls.Add(this.btn_create);
             this.Controls.Add(this.lib_properly);
             this.Controls.Add(this.lib_all);
             this.Controls.Add(this.lb_count);
@@ -137,7 +137,7 @@
         private System.Windows.Forms.Label lb_count;
         private System.Windows.Forms.ListBox lib_all;
         private System.Windows.Forms.ListBox lib_properly;
-        private System.Windows.Forms.Button btn_apply;
+        private System.Windows.Forms.Button btn_create;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_edit;
     }

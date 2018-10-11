@@ -1,0 +1,9 @@
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\bin\Debug\FilmeSchauspieler.exe.config
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\bin\Debug\FilmeSchauspieler.exe
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\bin\Debug\FilmeSchauspieler.pdb
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.csprojResolveAssemblyReference.cache
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.GUI.resources
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.Properties.Resources.resources
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.csproj.GenerateResource.Cache
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.exe
+C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.pdb
