@@ -8,5 +8,8 @@ namespace FilmeSchauspieler.Model
 {
     class Movie
     {
+        private string title;
+        private List<Movie> movies;
+
     }
 }

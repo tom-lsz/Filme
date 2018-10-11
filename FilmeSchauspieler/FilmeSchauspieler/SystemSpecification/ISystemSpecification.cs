@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FilmeSchauspieler.Model;
 
-namespace FilmeSchauspieler
+namespace FilmeSchauspieler.SystemSpecification
 {
     interface ISystemSpecification
     {

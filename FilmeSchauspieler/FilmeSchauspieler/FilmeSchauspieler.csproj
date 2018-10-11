@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DataManagement\DataManagementTest.cs" />
     <Compile Include="Model\Actor.cs" />
+    <Compile Include="SystemSpecification\SystemSpecificationAsc.cs" />
     <Compile Include="Userinterface\GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,7 +57,7 @@
     </Compile>
     <Compile Include="Helper\CSVReader.cs" />
     <Compile Include="DataManagement\IDataManagement.cs" />
-    <Compile Include="ISystemSpecification.cs" />
+    <Compile Include="SystemSpecification\ISystemSpecification.cs" />
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="SystemSpecification\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

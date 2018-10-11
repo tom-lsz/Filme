@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FilmeSchauspieler.DataManagement;
 using FilmeSchauspieler.Userinterface;
+using FilmeSchauspieler.SystemSpecification;
 
 namespace FilmeSchauspieler
 {
@@ -20,6 +21,10 @@ namespace FilmeSchauspieler
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GUI());
             DataManagementTest test = new DataManagementTest();
+
+            ISystemSpecification systemSpecification = new SystemSpecificationAsc();
+
+            GUI gui = new GUI(systemSpecification);
         }
     }
 }
