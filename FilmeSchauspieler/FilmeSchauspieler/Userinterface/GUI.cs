@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FilmeSchauspieler.SystemSpecification;
+using FilmeSchauspieler.Model;
 
 namespace FilmeSchauspieler.Userinterface
 {
     public partial class GUI : Form
     {
         private ISystemSpecification systemSpecification;
+
         public GUI()
         {
             InitializeComponent();
@@ -38,11 +40,16 @@ namespace FilmeSchauspieler.Userinterface
         {
             if (cmb_select.Text == "Filme")
             {
-                lib_all.Items.Add(ss.getMovies());
+                List<Movie> temp = systemSpecification.getMovies();             
+
+                foreach(Movie m in temp)
+                {
+                    lib_all.Items.Add(m);
+                }
             }
             else if (cmb_select.Text == "Schauspieler")
             {
-                lib_all.Items.Add(.getActors());
+                //lib_all.Items.Add(systemSpecification.getActors());
             }
             else
             {
@@ -54,11 +61,11 @@ namespace FilmeSchauspieler.Userinterface
         {
             if (cmb_select.Text == "Filme")
             {
-                lib_properly.Items.Add(.getActors(lib_all.SelectedItem));
+                object temp = lib_all.SelectedItem;
             }
             else if (cmb_select.Text == "Schauspieler")
             {
-                lib_properly.Items.Add(.getMovies(lib_all.SelectedItem));
+                //lib_properly.Items.Add(systemSpecification.getMovies(lib_all.SelectedItem));
             }
         }
 

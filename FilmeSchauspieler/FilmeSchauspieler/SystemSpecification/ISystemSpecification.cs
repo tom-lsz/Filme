@@ -7,7 +7,7 @@ using FilmeSchauspieler.Model;
 
 namespace FilmeSchauspieler.SystemSpecification
 {
-    interface ISystemSpecification
+    public interface ISystemSpecification
     {
         List<Movie> getMovies();
         List<Actor> getActors();

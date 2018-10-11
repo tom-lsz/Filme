@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmeSchauspieler.Model
 {
-    class Actor
+    public class Actor
     {
     }
 }

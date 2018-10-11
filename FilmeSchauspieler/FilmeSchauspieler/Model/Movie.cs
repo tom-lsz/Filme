@@ -6,10 +6,26 @@ using System.Threading.Tasks;
 
 namespace FilmeSchauspieler.Model
 {
-    class Movie
+    public class Movie
     {
         private string title;
         private List<Movie> movies;
+        private int uid;
+
+        public void setTitle(string title)
+        {
+            this.title = title;
+        }
+
+        public string getTitle()
+        {
+            return title;
+        }
+
+        public override string ToString()
+        {
+            return title;    
+        }
 
     }
 }
