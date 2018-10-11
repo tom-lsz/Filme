@@ -7,3 +7,13 @@ C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\
 C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.csproj.GenerateResource.Cache
 C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.exe
 C:\Users\user\RiderProjects\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.pdb
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\bin\Debug\FilmeSchauspieler.exe.config
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\bin\Debug\FilmeSchauspieler.exe
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\bin\Debug\FilmeSchauspieler.pdb
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.GUI.resources
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.Properties.Resources.resources
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.csproj.GenerateResource.Cache
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.exe
+C:\Users\user\Source\Repos\Filme\FilmeSchauspieler\FilmeSchauspieler\obj\Debug\FilmeSchauspieler.pdb

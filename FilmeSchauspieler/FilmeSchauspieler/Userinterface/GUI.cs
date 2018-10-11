@@ -8,13 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FilmeSchauspieler
+namespace FilmeSchauspieler.Userinterface
 {
     public partial class GUI : Form
     {
         public GUI()
         {
             InitializeComponent();
+
+            cmb_select.Items.Add("Filme");
+            cmb_select.Items.Add("Schauspieler");
+            cmb_select.SelectedItem = "Filme";
+        }
+
+        private void bt_confirm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
