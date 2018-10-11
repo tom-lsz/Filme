@@ -75,6 +75,7 @@
             this.lib_all.Name = "lib_all";
             this.lib_all.Size = new System.Drawing.Size(191, 277);
             this.lib_all.TabIndex = 3;
+            this.lib_all.SelectedIndexChanged += new System.EventHandler(this.lib_all_SelectedIndexChanged);
             // 
             // lib_properly
             // 

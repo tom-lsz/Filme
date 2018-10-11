@@ -23,7 +23,30 @@ namespace FilmeSchauspieler.Userinterface
 
         private void bt_confirm_Click(object sender, EventArgs e)
         {
+            if (cmb_select.Text == "Filme")
+            {
+                lib_all.Items.Add(.getMovies());
+            }
+            else if (cmb_select.Text == "Schauspieler")
+            {
+                lib_all.Items.Add(.getActors());
+            }
+            else
+            {
+                MessageBox.Show("Filme oder Schauspieler auswählen!");
+            }
+        }
 
+        private void lib_all_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_select.Text == "Filme")
+            {
+                lib_properly.Items.Add(.getActors(lib_all.SelectedItem));
+            }
+            else if (cmb_select.Text == "Schauspieler")
+            {
+                lib_properly.Items.Add(.getMovies(lib_all.SelectedItem));
+            }
         }
     }
 }
