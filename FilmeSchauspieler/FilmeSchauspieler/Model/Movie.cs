@@ -6,26 +6,91 @@ using System.Threading.Tasks;
 
 namespace FilmeSchauspieler.Model
 {
-    public class Movie
-    {
-        private string title;
-        private List<Movie> movies;
-        private int uid;
+	/**
+	 * Movie Model
+	 */
+	public class Movie
+	{
+		/**
+		 * title of movie
+		 */
+		private string title;
 
-        public void setTitle(string title)
-        {
-            this.title = title;
-        }
+		/**
+		 * List of actors
+		 */
+		private List<Actor> actors;
 
-        public string getTitle()
-        {
-            return title;
-        }
+		/**
+		 * unique identifier
+		 */
+		private int uid;
 
-        public override string ToString()
-        {
-            return title;    
-        }
+		/**
+		 * constructor of Movie-class
+		 */
+		public Movie (int uid, string title, List<Actor> actors)
+		{
+			this.uid = uid;
+			this.title = title;
+			this.actors = actors;
+		}
 
-    }
+		/**
+		 * setter title
+		 */
+		public void setTitle(string title)
+		{
+			this.title = title;
+		}
+
+		/**
+		 * getter title
+		 */
+		public string getTitle()
+		{
+			return title;
+		}
+
+		/**
+		 * setter uid
+		 */
+		public void setUid(int uid)
+		{
+			this.uid = uid;
+		}
+
+		/**
+		 * getter uid
+		 */
+		public int getUid()
+		{
+			return this.uid;
+		}
+
+		/**
+		 * getter actors
+		 */
+		public void setActors(List<Actor> actors)
+		{
+			this.actors = actors;
+		}
+
+		/**
+		 * setter actors
+		 */
+		public List<Actor> getActors()
+		{
+			return this.actors;
+		}
+
+		/**
+		 * ToString methode of movie class
+		 */
+		public override string ToString()
+		{
+			return title;    
+		}
+
+	}
 }
