@@ -40,8 +40,8 @@ namespace FilmeSchauspieler.Userinterface
         {
             if (cmb_select.Text == "Filme")
             {
-                List<Movie> temp = systemSpecification.getMovies();             
-                
+                List<Movie> temp = systemSpecification.getMovies();
+                lib_all.Items.Clear();
                 foreach(Movie m in temp)
                 {
                     lib_all.Items.Add(m);
@@ -49,7 +49,12 @@ namespace FilmeSchauspieler.Userinterface
             }
             else if (cmb_select.Text == "Schauspieler")
             {
-                //lib_all.Items.Add(systemSpecification.getActors());
+                List<Actor> temp = systemSpecification.getActors();
+                lib_all.Items.Clear();
+                foreach(Actor m in temp)
+                {
+                    lib_all.Items.Add(m);
+                }
             }
             else
             {
