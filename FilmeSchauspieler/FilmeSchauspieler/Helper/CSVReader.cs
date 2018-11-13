@@ -15,6 +15,11 @@ namespace FilmeSchauspieler.Helper
             string travelUpTwo = @".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar;
             string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, travelUpTwo, "Data"));
             System.Console.WriteLine(path);
+            string file = Path.Combine(path, "movies.csv");
+            if (!File.Exists(file))
+            {
+                File.Create(file);
+            }
         }
     }
 }
