@@ -33,6 +33,17 @@ namespace FilmeSchauspieler.Model
 			this.movies = movies;
 		}
 
+        /**
+		 * parameterless constructor of Actor class
+		 */
+        public Actor()
+        {
+            this.uid = 0;
+            this.name = "";
+            this.movies = new List<Movie>();
+        }
+        
+
 		/**
 		 * setter uid
 		 */

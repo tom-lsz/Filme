@@ -36,6 +36,13 @@ namespace FilmeSchauspieler.Model
 			this.actors = actors;
 		}
 
+        public Movie ()
+        {
+            this.uid = 0;
+            this.title = "";
+            this.actors = new List<Actor>();
+        }
+
 		/**
 		 * setter title
 		 */

@@ -41,7 +41,7 @@ namespace FilmeSchauspieler.Userinterface
             if (cmb_select.Text == "Filme")
             {
                 List<Movie> temp = systemSpecification.getMovies();             
-
+                
                 foreach(Movie m in temp)
                 {
                     lib_all.Items.Add(m);
