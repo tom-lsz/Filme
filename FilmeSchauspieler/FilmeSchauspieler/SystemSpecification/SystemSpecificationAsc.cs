@@ -11,12 +11,16 @@ namespace FilmeSchauspieler.SystemSpecification
     {
         public List<Movie> getMovies()
         {
-            List<Movie> returnMovies = this.getMockupMovies();
+            List<Movie> returnMovies = this.getMockupMovies(100);
 
+            int counter = 1;
+            int cAct;
             foreach(Movie m in returnMovies)
             {
-                List<Actor> tempActors = this.getMockupActors();
+                cAct = 2 * counter;
+                List<Actor> tempActors = this.getMockupActors(cAct);
                 m.setActors(tempActors);
+                counter++;
             }
 
             return returnMovies;
@@ -25,6 +29,16 @@ namespace FilmeSchauspieler.SystemSpecification
         public List<Actor> getActors()
         {
             List<Actor> returnActors = this.getMockupActors();
+
+            int counter = 1;
+            int cMovie;
+            foreach (Actor a in returnActors)
+            {
+                cMovie = 2 * counter;
+                List<Movie> tempMocvie = this.getMockupMovies(cMovie);
+                a.setMovies(tempMocvie);
+                counter++;
+            }
 
             return returnActors;
         }
@@ -89,9 +103,15 @@ namespace FilmeSchauspieler.SystemSpecification
             return true;
         }
 
-        protected List<Movie> getMockupMovies()
+        protected List<Movie> getMockupMovies(int count = 3)
         {
-            List<string> test = new List<string> { "movie1", "movie2", "movie3", "movie4" };
+            List<string> test = new List<string>();
+
+            for (int i = 1; i <= count; i++)
+            {
+                test.Add("movie" + count * i);
+            }
+
             List<Movie> returnMovies = new List<Movie>();
 
             int c = 1;
@@ -105,9 +125,17 @@ namespace FilmeSchauspieler.SystemSpecification
             return returnMovies;
         }
 
-        protected List<Actor> getMockupActors()
+        protected List<Actor> getMockupActors(int count = 4)
         {
-            List<string> test = new List<string> { "actor1", "actor2", "actor3", "actor4" };
+            List<string> test = new List<string>();
+            int randomNr;
+            Random rnd = new Random();
+
+            for (int i = 1; i <= count; i++ )
+            {                
+                randomNr = rnd.Next(1, count*count);
+                test.Add("actor" + randomNr.ToString());
+            }
             List<Actor> returnActors = new List<Actor>();
 
             int c = 1;

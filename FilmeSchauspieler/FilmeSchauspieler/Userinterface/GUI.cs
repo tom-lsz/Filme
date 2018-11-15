@@ -28,50 +28,32 @@ namespace FilmeSchauspieler.Userinterface
         public GUI(ISystemSpecification systemSpecification)
         {
             InitializeComponent();
+            this.systemSpecification = systemSpecification;
 
             cmb_select.Items.Add("Filme");
             cmb_select.Items.Add("Schauspieler");
             cmb_select.SelectedItem = "Filme";
-
-            this.systemSpecification = systemSpecification;
-        }        
-
-        private void bt_confirm_Click(object sender, EventArgs e)
-        {
-            if (cmb_select.Text == "Filme")
-            {
-                List<Movie> temp = systemSpecification.getMovies();
-                lib_all.Items.Clear();
-                foreach(Movie m in temp)
-                {
-                    lib_all.Items.Add(m);
-                }
-            }
-            else if (cmb_select.Text == "Schauspieler")
-            {
-                List<Actor> temp = systemSpecification.getActors();
-                lib_all.Items.Clear();
-                foreach(Actor m in temp)
-                {
-                    lib_all.Items.Add(m);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Filme oder Schauspieler auswählen!");
-            }
         }
 
         private void lib_all_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmb_select.Text == "Filme")
             {
-                object temp = lib_all.SelectedItem;
+                Movie tempMovie = (Movie) lib_all.SelectedItem;
+                List<Actor> curActors = tempMovie.getActors();
+                lb_countprop.Text = "Anzahl der Schauspieler " + curActors.Count.ToString();
+                lib_properly.Items.Clear();
+
+                foreach(Actor a in curActors)
+                {
+                    lib_properly.Items.Add(a);
+                }
             }
             else if (cmb_select.Text == "Schauspieler")
             {
-                Actor testActor = (Actor)lib_all.SelectedItem;
-                List<Movie> curMovies = testActor.getMovies();
+                Actor tempActor = (Actor) lib_all.SelectedItem;
+                List<Movie> curMovies = tempActor.getMovies();
+                lb_countprop.Text = "Anzahl der Filme " + curMovies.Count.ToString();
                 lib_properly.Items.Clear();
 
                 foreach(Movie m in curMovies)
@@ -81,9 +63,32 @@ namespace FilmeSchauspieler.Userinterface
             }
         }
 
-        private void GUI_Load(object sender, EventArgs e)
+        private void cmb_select_SelectedValueChanged(object sender, EventArgs e)
         {
+            lb_countprop.Text = "";
 
+            if (cmb_select.Text == "Filme")
+            {
+                List<Movie> temp = systemSpecification.getMovies();
+                lb_countall.Text = "Anzahl der Filme " + temp.Count.ToString();
+                lib_all.Items.Clear();
+                foreach (Movie m in temp)
+                {
+                    lib_all.Items.Add(m);
+                }
+            }
+            else
+            {
+                List<Actor> temp = systemSpecification.getActors();
+                lb_countall.Text = "Anzahl der Schauspieler " + temp.Count.ToString();
+                lib_all.Items.Clear();
+                foreach (Actor m in temp)
+                {
+                    lib_all.Items.Add(m);
+                }
+            }
+
+            lib_properly.Items.Clear();
         }
     }
 }
