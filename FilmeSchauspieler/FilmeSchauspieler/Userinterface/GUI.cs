@@ -70,7 +70,14 @@ namespace FilmeSchauspieler.Userinterface
             }
             else if (cmb_select.Text == "Schauspieler")
             {
-                //lib_properly.Items.Add(systemSpecification.getMovies(lib_all.SelectedItem));
+                Actor testActor = (Actor)lib_all.SelectedItem;
+                List<Movie> curMovies = testActor.getMovies();
+                lib_properly.Items.Clear();
+
+                foreach(Movie m in curMovies)
+                {
+                    lib_properly.Items.Add(m);
+                }
             }
         }
 

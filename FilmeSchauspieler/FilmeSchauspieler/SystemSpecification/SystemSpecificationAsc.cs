@@ -11,15 +11,12 @@ namespace FilmeSchauspieler.SystemSpecification
     {
         public List<Movie> getMovies()
         {
-            List<string> test = new List<string> { "movie1", "movie2", "movie3", "movie4" };
-            List<Movie> returnMovies = new List<Movie>();
+            List<Movie> returnMovies = this.getMockupMovies();
 
-            int c = 1;
-            foreach(string s in test)
+            foreach(Movie m in returnMovies)
             {
-                Movie temp = new Movie(c, s, new List<Actor>());               
-                returnMovies.Add(temp);
-                c++;
+                List<Actor> tempActors = this.getMockupActors();
+                m.setActors(tempActors);
             }
 
             return returnMovies;
@@ -27,16 +24,7 @@ namespace FilmeSchauspieler.SystemSpecification
 
         public List<Actor> getActors()
         {
-            List<string> test = new List<string> { "actor1", "actor2", "actor3", "actor4" };
-            List<Actor> returnActors = new List<Actor>();
-
-            int c = 1;
-            foreach(string s in test)
-            {
-                Actor temp = new Actor(c, s, new List<Movie>());               
-                returnActors.Add(temp);
-                c++;
-            }
+            List<Actor> returnActors = this.getMockupActors();
 
             return returnActors;
         }
@@ -83,18 +71,7 @@ namespace FilmeSchauspieler.SystemSpecification
 
         public List<Actor> getActors(Movie movie)
         {
-            //List<string> test = new List<string> { "actor1", "actor2", "actor3", "actor4" };
-            List<Actor> returnActors = new List<Actor>();
-
-            /*int c = 1;
-            foreach(string s in test)
-            {
-                Actor temp = new Actor(c, s, new List<Movie>());               
-                returnActors.Add(temp);
-                c++;
-            }*/
-
-            return returnActors;
+            return movie.getActors();
         }
 
         public List<Movie> getMovies(Actor actor)
@@ -110,6 +87,38 @@ namespace FilmeSchauspieler.SystemSpecification
         public bool removeActorFromMovie(Actor actor, Movie movie)
         {
             return true;
+        }
+
+        protected List<Movie> getMockupMovies()
+        {
+            List<string> test = new List<string> { "movie1", "movie2", "movie3", "movie4" };
+            List<Movie> returnMovies = new List<Movie>();
+
+            int c = 1;
+            foreach (string s in test)
+            {
+                Movie temp = new Movie(c, s, new List<Actor>());
+                returnMovies.Add(temp);
+                c++;
+            }
+
+            return returnMovies;
+        }
+
+        protected List<Actor> getMockupActors()
+        {
+            List<string> test = new List<string> { "actor1", "actor2", "actor3", "actor4" };
+            List<Actor> returnActors = new List<Actor>();
+
+            int c = 1;
+            foreach (string s in test)
+            {
+                Actor temp = new Actor(c, s, new List<Movie>());
+                returnActors.Add(temp);
+                c++;
+            }
+
+            return returnActors;
         }
     }
 }
