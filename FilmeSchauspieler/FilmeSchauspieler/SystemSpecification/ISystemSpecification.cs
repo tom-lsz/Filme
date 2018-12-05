@@ -22,7 +22,6 @@ namespace FilmeSchauspieler.SystemSpecification
         List<Actor> getActors(Movie movie);
         List<Movie> getMovies(Actor actor);
         bool addActorToMovie(Actor actor, Movie movie);
-        bool removeActorFromMovie(Actor actor, Movie movie);
-
+        bool removeActorFromMovie(Actor actor, Movie movie);   
     }
 }

@@ -17,7 +17,7 @@ namespace FilmeSchauspieler
         [STAThread]
         static void Main()
         {
-            ISystemSpecification systemSpecification = new SystemSpecificationAsc();            
+            ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC");            
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
