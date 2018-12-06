@@ -36,17 +36,17 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.lb_countprop = new System.Windows.Forms.Label();
             this.pl_create = new System.Windows.Forms.Panel();
-            this.cmb_newrecord = new System.Windows.Forms.ComboBox();
-            this.lb_newrecord = new System.Windows.Forms.Label();
-            this.lb_name = new System.Windows.Forms.Label();
-            this.lb_addentry = new System.Windows.Forms.Label();
-            this.tb_name = new System.Windows.Forms.TextBox();
-            this.lib_existingrecords = new System.Windows.Forms.ListBox();
-            this.lib_electedrecords = new System.Windows.Forms.ListBox();
-            this.btn_addelectedrecord = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.lb_electedrecords = new System.Windows.Forms.Label();
             this.btn_menu = new System.Windows.Forms.Button();
+            this.lb_electedrecords = new System.Windows.Forms.Label();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_addelectedrecord = new System.Windows.Forms.Button();
+            this.lib_electedrecords = new System.Windows.Forms.ListBox();
+            this.lib_existingrecords = new System.Windows.Forms.ListBox();
+            this.tb_name = new System.Windows.Forms.TextBox();
+            this.lb_addentry = new System.Windows.Forms.Label();
+            this.lb_name = new System.Windows.Forms.Label();
+            this.lb_newrecord = new System.Windows.Forms.Label();
+            this.cmb_newrecord = new System.Windows.Forms.ComboBox();
             this.pl_create.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,89 +136,16 @@
             this.pl_create.TabIndex = 9;
             this.pl_create.Visible = false;
             // 
-            // cmb_newrecord
+            // btn_menu
             // 
-            this.cmb_newrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_newrecord.FormattingEnabled = true;
-            this.cmb_newrecord.Location = new System.Drawing.Point(215, 23);
-            this.cmb_newrecord.Name = "cmb_newrecord";
-            this.cmb_newrecord.Size = new System.Drawing.Size(334, 24);
-            this.cmb_newrecord.TabIndex = 0;
-            this.cmb_newrecord.SelectedIndexChanged += new System.EventHandler(this.cmb_newrecord_SelectedValueChanged);
-            // 
-            // lb_newrecord
-            // 
-            this.lb_newrecord.AutoSize = true;
-            this.lb_newrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_newrecord.Location = new System.Drawing.Point(15, 26);
-            this.lb_newrecord.Name = "lb_newrecord";
-            this.lb_newrecord.Size = new System.Drawing.Size(183, 16);
-            this.lb_newrecord.TabIndex = 1;
-            this.lb_newrecord.Text = "Neuen Datensatz anlegen für:";
-            // 
-            // lb_name
-            // 
-            this.lb_name.AutoSize = true;
-            this.lb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_name.Location = new System.Drawing.Point(15, 63);
-            this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(48, 16);
-            this.lb_name.TabIndex = 2;
-            this.lb_name.Text = "Name:";
-            // 
-            // lb_addentry
-            // 
-            this.lb_addentry.AutoSize = true;
-            this.lb_addentry.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_addentry.Location = new System.Drawing.Point(15, 129);
-            this.lb_addentry.Name = "lb_addentry";
-            this.lb_addentry.Size = new System.Drawing.Size(92, 16);
-            this.lb_addentry.TabIndex = 3;
-            this.lb_addentry.Text = "vorhandene ...";
-            // 
-            // tb_name
-            // 
-            this.tb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_name.Location = new System.Drawing.Point(215, 62);
-            this.tb_name.Name = "tb_name";
-            this.tb_name.Size = new System.Drawing.Size(334, 22);
-            this.tb_name.TabIndex = 4;
-            // 
-            // lib_existingrecords
-            // 
-            this.lib_existingrecords.FormattingEnabled = true;
-            this.lib_existingrecords.Location = new System.Drawing.Point(18, 155);
-            this.lib_existingrecords.Name = "lib_existingrecords";
-            this.lib_existingrecords.Size = new System.Drawing.Size(301, 238);
-            this.lib_existingrecords.TabIndex = 5;
-            // 
-            // lib_electedrecords
-            // 
-            this.lib_electedrecords.FormattingEnabled = true;
-            this.lib_electedrecords.Location = new System.Drawing.Point(477, 155);
-            this.lib_electedrecords.Name = "lib_electedrecords";
-            this.lib_electedrecords.Size = new System.Drawing.Size(301, 238);
-            this.lib_electedrecords.TabIndex = 6;
-            // 
-            // btn_addelectedrecord
-            // 
-            this.btn_addelectedrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_addelectedrecord.Location = new System.Drawing.Point(325, 246);
-            this.btn_addelectedrecord.Name = "btn_addelectedrecord";
-            this.btn_addelectedrecord.Size = new System.Drawing.Size(146, 38);
-            this.btn_addelectedrecord.TabIndex = 7;
-            this.btn_addelectedrecord.Text = "Hinzufügen";
-            this.btn_addelectedrecord.UseVisualStyleBackColor = true;
-            // 
-            // btn_save
-            // 
-            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btn_save.Location = new System.Drawing.Point(55, 413);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(231, 62);
-            this.btn_save.TabIndex = 8;
-            this.btn_save.Text = "Speichern";
-            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btn_menu.Location = new System.Drawing.Point(517, 413);
+            this.btn_menu.Name = "btn_menu";
+            this.btn_menu.Size = new System.Drawing.Size(231, 62);
+            this.btn_menu.TabIndex = 10;
+            this.btn_menu.Text = "Hauptmenü";
+            this.btn_menu.UseVisualStyleBackColor = true;
+            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
             // 
             // lb_electedrecords
             // 
@@ -230,16 +157,90 @@
             this.lb_electedrecords.TabIndex = 9;
             this.lb_electedrecords.Text = "ausgewählte ...";
             // 
-            // btn_menu
+            // btn_save
             // 
-            this.btn_menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btn_menu.Location = new System.Drawing.Point(517, 413);
-            this.btn_menu.Name = "btn_menu";
-            this.btn_menu.Size = new System.Drawing.Size(231, 62);
-            this.btn_menu.TabIndex = 10;
-            this.btn_menu.Text = "Hauptmenü";
-            this.btn_menu.UseVisualStyleBackColor = true;
-            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btn_save.Location = new System.Drawing.Point(55, 413);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(231, 62);
+            this.btn_save.TabIndex = 8;
+            this.btn_save.Text = "Speichern";
+            this.btn_save.UseVisualStyleBackColor = true;
+            // 
+            // btn_addelectedrecord
+            // 
+            this.btn_addelectedrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_addelectedrecord.Location = new System.Drawing.Point(325, 246);
+            this.btn_addelectedrecord.Name = "btn_addelectedrecord";
+            this.btn_addelectedrecord.Size = new System.Drawing.Size(146, 38);
+            this.btn_addelectedrecord.TabIndex = 7;
+            this.btn_addelectedrecord.Text = "Hinzufügen";
+            this.btn_addelectedrecord.UseVisualStyleBackColor = true;
+            this.btn_addelectedrecord.Click += new System.EventHandler(this.btn_addelectedrecord_Click);
+            // 
+            // lib_electedrecords
+            // 
+            this.lib_electedrecords.FormattingEnabled = true;
+            this.lib_electedrecords.Location = new System.Drawing.Point(477, 155);
+            this.lib_electedrecords.Name = "lib_electedrecords";
+            this.lib_electedrecords.Size = new System.Drawing.Size(301, 238);
+            this.lib_electedrecords.TabIndex = 6;
+            // 
+            // lib_existingrecords
+            // 
+            this.lib_existingrecords.FormattingEnabled = true;
+            this.lib_existingrecords.Location = new System.Drawing.Point(18, 155);
+            this.lib_existingrecords.Name = "lib_existingrecords";
+            this.lib_existingrecords.Size = new System.Drawing.Size(301, 238);
+            this.lib_existingrecords.TabIndex = 5;
+            // 
+            // tb_name
+            // 
+            this.tb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_name.Location = new System.Drawing.Point(215, 62);
+            this.tb_name.Name = "tb_name";
+            this.tb_name.Size = new System.Drawing.Size(334, 22);
+            this.tb_name.TabIndex = 4;
+            // 
+            // lb_addentry
+            // 
+            this.lb_addentry.AutoSize = true;
+            this.lb_addentry.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_addentry.Location = new System.Drawing.Point(15, 129);
+            this.lb_addentry.Name = "lb_addentry";
+            this.lb_addentry.Size = new System.Drawing.Size(92, 16);
+            this.lb_addentry.TabIndex = 3;
+            this.lb_addentry.Text = "vorhandene ...";
+            // 
+            // lb_name
+            // 
+            this.lb_name.AutoSize = true;
+            this.lb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_name.Location = new System.Drawing.Point(15, 63);
+            this.lb_name.Name = "lb_name";
+            this.lb_name.Size = new System.Drawing.Size(48, 16);
+            this.lb_name.TabIndex = 2;
+            this.lb_name.Text = "Name:";
+            // 
+            // lb_newrecord
+            // 
+            this.lb_newrecord.AutoSize = true;
+            this.lb_newrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_newrecord.Location = new System.Drawing.Point(15, 26);
+            this.lb_newrecord.Name = "lb_newrecord";
+            this.lb_newrecord.Size = new System.Drawing.Size(183, 16);
+            this.lb_newrecord.TabIndex = 1;
+            this.lb_newrecord.Text = "Neuen Datensatz anlegen für:";
+            // 
+            // cmb_newrecord
+            // 
+            this.cmb_newrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_newrecord.FormattingEnabled = true;
+            this.cmb_newrecord.Location = new System.Drawing.Point(215, 23);
+            this.cmb_newrecord.Name = "cmb_newrecord";
+            this.cmb_newrecord.Size = new System.Drawing.Size(334, 24);
+            this.cmb_newrecord.TabIndex = 0;
+            this.cmb_newrecord.SelectedIndexChanged += new System.EventHandler(this.cmb_newrecord_SelectedValueChanged);
             // 
             // GUI
             // 

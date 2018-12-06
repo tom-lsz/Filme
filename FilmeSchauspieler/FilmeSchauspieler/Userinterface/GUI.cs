@@ -97,21 +97,34 @@ namespace FilmeSchauspieler.Userinterface
         private void btn_create_Click(object sender, EventArgs e)
         {
             pl_create.Visible = true;
+            lib_existingrecords.Items.Clear();
+            lib_electedrecords.Items.Clear();
         }
 
         private void cmb_newrecord_SelectedValueChanged(object sender, EventArgs e)
         {
             lib_existingrecords.Items.Clear();
+            lib_electedrecords.Items.Clear();
 
             if (cmb_newrecord.Text == "Filme")
             {
                 lb_addentry.Text = "vorhandene Schauspieler";
                 lb_electedrecords.Text = "ausgewählte Schauspieler";
+                List<Actor> temp = systemSpecification.getActors();
+                foreach (Actor m in temp)
+                {
+                    lib_existingrecords.Items.Add(m);
+                }
             }
             else
             {
                 lb_addentry.Text = "vorhandene Filme";
                 lb_electedrecords.Text = "ausgewählte Filme";
+                List<Movie> temp = systemSpecification.getMovies();
+                foreach (Movie m in temp)
+                {
+                    lib_existingrecords.Items.Add(m);
+                }
             }
         }
 
@@ -120,6 +133,36 @@ namespace FilmeSchauspieler.Userinterface
             pl_create.Visible = false;
             cmb_newrecord.SelectedItem = null;
             cmb_select.SelectedItem = null;
+            lib_all.Items.Clear();
+        }
+
+        private void btn_addelectedrecord_Click(object sender, EventArgs e)
+        {
+            string add;
+            if (cmb_newrecord.Text == "")
+            {
+                MessageBox.Show("Bitte eine Kategorie auswählen (Film/Schauspieler");
+            }
+            else
+            {
+                add = lib_existingrecords.SelectedItem.ToString();
+                if (lib_electedrecords.Items.Contains(add) == true)
+                {
+                    if (cmb_newrecord.Text == "Filme")
+                    {
+                        MessageBox.Show("Der Schauspieler wurde bereits hinzugefügt!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Der Film wurde bereits hinzugefügt!");
+                    }
+
+                }
+                else
+                {
+                    lib_electedrecords.Items.Add(add);
+                }
+            }
         }
     }
 }

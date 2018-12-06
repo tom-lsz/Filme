@@ -13,6 +13,7 @@ namespace FilmeSchauspieler.DataManagement
     class DataManagementSql : IDataManagement
     {
         public string path { get; set; }
+        private SQLiteConnection data_dbConnection { get; set; }
         public DataManagementSql()
         {
             try
@@ -26,13 +27,37 @@ namespace FilmeSchauspieler.DataManagement
                     SQLiteConnection.CreateFile(fileActorsMovies);
                 }
                 SQLiteConnection data_dbConnection = new SQLiteConnection("Data Source=" + fileActorsMovies + ";Version=3;");
+                this.data_dbConnection = data_dbConnection;
                 data_dbConnection.Open();
+                if (!tableExists(data_dbConnection, "Actor"))
+                {
+                    using (SQLiteCommand command = data_dbConnection.CreateCommand())
+                    {
+                        command.CommandText = "CREATE TABLE Actor (uid int, name varchar(30))";
+                        command.ExecuteNonQuery();
+                    }
+                }
+                if (!tableExists(data_dbConnection, "Movie"))
+                {
+                    using (SQLiteCommand command = data_dbConnection.CreateCommand())
+                    {
+                        command.CommandText = "CREATE TABLE Movie (uid int, title varchar(40))";
+                        command.ExecuteNonQuery();
+                    }
+                }
+                if (!tableExists(data_dbConnection, "Connection"))
+                {
+                    using (SQLiteCommand command = data_dbConnection.CreateCommand())
+                    {
+                        command.CommandText = "CREATE TABLE Connection (uid_Actor int, uid_Movie int)";
+                        command.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         } 
 
         public bool tableExists(SQLiteConnection data_dbConnection, string tableName)
@@ -43,27 +68,38 @@ namespace FilmeSchauspieler.DataManagement
                 {
                     command.CommandText = "SELECT name FROM sqlite_master WHERE name='" + tableName + "'";
                     var name = command.ExecuteScalar();
-
                     return (name != null && name.ToString() == tableName) ? true : false; 
-                    
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
             return false;
         }
 
         public int countActors()
         {
-            return 1;
+            data_dbConnection.Open();
+            int count;
+            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) FROM Actor";
+                count = command.ExecuteNonQuery();
+            }
+            return count;
         }
 
         public int countMovies()
         {
-            return 1;
+            data_dbConnection.Open();
+            int count;
+            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) FROM Movie";
+                count = command.ExecuteNonQuery();
+            }
+            return count;
         }
 
         public List<Actor> getActors()
