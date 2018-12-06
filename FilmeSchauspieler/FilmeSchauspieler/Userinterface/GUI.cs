@@ -89,13 +89,13 @@ namespace FilmeSchauspieler.Userinterface
         {
             pl_create.Visible = true;
             lib_existingrecords.DataSource = new List<String>();
-            lib_electedrecords.DataSource = new List<String>();
+            lib_electedrecords.Items.Clear();
         }
 
         private void cmb_newrecord_SelectedValueChanged(object sender, EventArgs e)
         {
             lib_existingrecords.DataSource = new List<String>();
-            lib_electedrecords.DataSource = new List<String>();
+            lib_electedrecords.Items.Clear();
 
             if (cmb_newrecord.Text == "Filme")
             {
@@ -146,6 +146,7 @@ namespace FilmeSchauspieler.Userinterface
                     lib_electedrecords.Items.Add(add);
                 }
             }
+            lib_electedrecords.Sorted = true;
         }
     }
 }
