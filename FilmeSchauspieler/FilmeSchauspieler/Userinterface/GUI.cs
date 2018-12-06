@@ -54,12 +54,12 @@ namespace FilmeSchauspieler.Userinterface
             }
             else if (cmb_select.Text == "Schauspieler")
             {
-                String tempActor = (String) lib_all.SelectedItem;
+                KeyValuePair<int, string> tempActor = (KeyValuePair<int, string>) lib_all.SelectedItem;
                 Dictionary<int, string> curMovies = this.systemSpecification.getMovies();
                 lb_countprop.Text = "Anzahl der Filme " + curMovies.Count.ToString();
-                lib_properly.DataSource = new Dictionary<int, string>();
+                lib_properly.DataSource = new List<String>();
 
-                lib_properly.DataSource = curMovies;
+                lib_properly.DataSource = curMovies.ToList();
             }
         }
 
@@ -104,13 +104,13 @@ namespace FilmeSchauspieler.Userinterface
             {
                 lb_addentry.Text = "vorhandene Schauspieler";
                 lb_electedrecords.Text = "ausgewählte Schauspieler";
-                lib_existingrecords.DataSource = systemSpecification.getActors();
+                lib_existingrecords.DataSource = systemSpecification.getActors().ToList();
             }
             else
             {
                 lb_addentry.Text = "vorhandene Filme";
                 lb_electedrecords.Text = "ausgewählte Filme";
-                lib_existingrecords.DataSource = systemSpecification.getMovies();
+                lib_existingrecords.DataSource = systemSpecification.getMovies().ToList();
             }
         }
 
@@ -119,7 +119,7 @@ namespace FilmeSchauspieler.Userinterface
             pl_create.Visible = false;
             cmb_newrecord.SelectedItem = null;
             cmb_select.SelectedItem = null;
-            lib_all.DataSource = new Dictionary<int, string>();
+            lib_all.DataSource = new List<String>();
         }
 
         private void btn_addelectedrecord_Click(object sender, EventArgs e)
