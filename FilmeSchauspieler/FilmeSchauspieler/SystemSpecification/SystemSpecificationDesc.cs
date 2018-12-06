@@ -8,7 +8,7 @@ using FilmeSchauspieler.DataManagement;
 
 namespace FilmeSchauspieler.SystemSpecification
 {
-    public class SystemSpecificationDesc:ISystemSpecification
+    public class SystemSpecificationDesc
     {
         private IDataManagement dataManagement;
 

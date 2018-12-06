@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataManagement\DataManagementFactory.cs" />
     <Compile Include="DataManagement\DataManagementSql.cs" />
     <Compile Include="DataManagement\DataManagementTest.cs" />
     <Compile Include="Model\Actor.cs" />

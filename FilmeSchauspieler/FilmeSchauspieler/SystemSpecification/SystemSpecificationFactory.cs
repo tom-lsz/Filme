@@ -18,7 +18,8 @@ namespace FilmeSchauspieler.SystemSpecification
                     return new SystemSpecificationAsc(dataManagement);
 
                 case "DESC":
-                    return new SystemSpecificationDesc(dataManagement);
+                    //return new SystemSpecificationDesc(dataManagement);
+                    return null;
 
                 default:
                     return new SystemSpecificationAsc(dataManagement);

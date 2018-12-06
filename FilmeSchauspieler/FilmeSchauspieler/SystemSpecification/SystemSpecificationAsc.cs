@@ -18,25 +18,16 @@ namespace FilmeSchauspieler.SystemSpecification
             this.dataManagement = dataManagement;
         }
 
-        public List<String> getMovies()
+        public Dictionary<int, string> getMovies()
         {
-            List<String> returnMovies = this.getMockupMovies(100);
-
-            int counter = 1;
-            int cAct;
-            foreach(String m in returnMovies)
-            {
-                cAct = 2 * counter;
-                List<String> tempActors = this.getMockupActors(cAct);
-                counter++;
-            }
+            Dictionary<int, string> returnMovies = this.getMockupMovies(100);           
 
             return returnMovies;
         }
 
-        public List<String> getActors()
+        public Dictionary<int, string> getActors()
         {
-            List<String> returnActors = this.getMockupActors();
+            Dictionary<int, string> returnActors = this.getMockupActors();
 
             return returnActors;
         }
@@ -81,14 +72,14 @@ namespace FilmeSchauspieler.SystemSpecification
             return true;
         }
 
-        public List<Actor> getActors(Movie movie)
+        public Dictionary<int, string> getActors(int movieId)
         {
-            return movie.getActors();
+            return new Dictionary<int, string>();
         }
 
-        public List<Movie> getMovies(Actor actor)
+        public Dictionary<int, string> getMovies(int actorId)
         {
-            return new List<Movie>();
+            return new Dictionary<int, string>();
         }
 
         public bool addActorToMovie(Actor actor, Movie movie)
@@ -101,28 +92,28 @@ namespace FilmeSchauspieler.SystemSpecification
             return true;
         }
 
-        protected List<String> getMockupMovies(int count = 3)
+        protected Dictionary<int, string> getMockupMovies(int count = 3)
         {
-            List<string> test = new List<string>();
+            Dictionary<int, string> test = new Dictionary<int, string>();
 
             for (int i = 1; i <= count; i++)
             {
-                test.Add("movie" + count * i);
+                test.Add(i, "movie" + count * i);
             }           
 
             return test;
         }
 
-        protected List<String> getMockupActors(int count = 4)
+        protected Dictionary<int, string> getMockupActors(int count = 4)
         {
-            List<string> test = new List<string>();
+            Dictionary<int, string> test = new Dictionary<int, string>();
             int randomNr;
             Random rnd = new Random();
 
             for (int i = 1; i <= count; i++ )
             {                
                 randomNr = rnd.Next(1, count*count);
-                test.Add("actor" + randomNr.ToString());
+                test.Add(i, "actor" + randomNr.ToString());
             }
 
             return test;
