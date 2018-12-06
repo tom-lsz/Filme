@@ -18,7 +18,7 @@ namespace FilmeSchauspieler
         [STAThread]
         static void Main()
         {
-            ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC");
+            ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC", "SQL");
             DataManagementSql test = new DataManagementSql();
 
 
