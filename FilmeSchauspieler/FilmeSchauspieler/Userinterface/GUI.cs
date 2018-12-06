@@ -151,5 +151,50 @@ namespace FilmeSchauspieler.Userinterface
             }
             lib_electedrecords.Sorted = true;
         }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            if (cmb_newrecord.Text == "")
+            {
+                if (tb_name.Text == "")
+                {
+                    MessageBox.Show("Bitte Kategorie auswählen und Namen eintragen!");
+                }
+                else
+                {
+                    MessageBox.Show("Bitte Kategorie auswählen!");
+                }
+            }
+            else
+            {
+                if (tb_name.Text == "")
+                {
+                    MessageBox.Show("Bitte Namen eintragen!");
+                }
+                else
+                {
+                    string name;
+
+                    if (cmb_newrecord.Text == "Filme")
+                    {
+                        List<string> actors = new List<string>();
+                        foreach (string a in lib_electedrecords.Items)
+                        {
+                            actors.Add(a);
+                        }
+                        name = tb_name.Text;
+                    }
+                    else
+                    {
+                        List<string> movies = new List<string>();
+                        foreach (string m in lib_electedrecords.Items)
+                        {
+                            movies.Add(m);
+                        }
+                        name = tb_name.Text;
+                    }
+                }
+            }
+        }
     }
 }
