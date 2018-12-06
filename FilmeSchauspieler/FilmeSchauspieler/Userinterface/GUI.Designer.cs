@@ -52,6 +52,7 @@
             // 
             // cmb_select
             // 
+            this.cmb_select.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_select.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.cmb_select.FormattingEnabled = true;
             this.cmb_select.Location = new System.Drawing.Point(13, 27);
@@ -235,6 +236,7 @@
             // 
             // cmb_newrecord
             // 
+            this.cmb_newrecord.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_newrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_newrecord.FormattingEnabled = true;
             this.cmb_newrecord.Location = new System.Drawing.Point(215, 23);
