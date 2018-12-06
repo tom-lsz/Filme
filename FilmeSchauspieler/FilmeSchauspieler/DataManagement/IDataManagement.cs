@@ -12,8 +12,8 @@ namespace FilmeSchauspieler.DataManagement {
         int countMovies();
         List<string[][]> getActors();
         List<string[][]> getMovies();
-        Actor getActor(int id);
-        Movie getMovie(int id);
+        string[] getActor(int id);
+        string[] getMovie(int id);
         bool addActor(Actor actor);
         bool addMovie(Movie movie);
         bool alterActor(Actor actor);

@@ -87,6 +87,7 @@ namespace FilmeSchauspieler.DataManagement
                 command.CommandText = "SELECT COUNT(*) FROM Actor";
                 count = command.ExecuteNonQuery();
             }
+            data_dbConnection.Close();
             return count;
         }
 
@@ -99,6 +100,7 @@ namespace FilmeSchauspieler.DataManagement
                 command.CommandText = "SELECT COUNT(*) FROM Movie";
                 count = command.ExecuteNonQuery();
             }
+            data_dbConnection.Close();
             return count;
         }
 
@@ -121,23 +123,65 @@ namespace FilmeSchauspieler.DataManagement
                     }
                 }
             }
+            data_dbConnection.Close();
             return actors;
         }
 
-        public List<Movie> getMovies()
+        public List<string[][]> getMovies()
         {
-            List<Movie> movies = new List<Movie>();
+            data_dbConnection.Open();
+            List<string[][]> movies = new List<string[][]>();
+            string[][] movie = new string[2][];
+            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Movie";
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    int count = 0;
+                    while (reader.Read())
+                    {
+                        movie[0][count] = reader.GetInt32(0).ToString();
+                        movie[1][count] = reader.GetString(1);
+                        movies.Add(movie);
+                    }
+                }
+            }
+            data_dbConnection.Close();
             return movies;
         }
 
-        public Actor getActor(int id)
+        public string[] getActor(int id)
         {
-            return null;
+            data_dbConnection.Open();
+            string[] actor = new string[2];
+            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Actor WHERE uid = " + id;
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    actor[0] = reader.GetInt32(0).ToString();
+                    actor[1] = reader.GetString(1);
+                }
+            }
+            data_dbConnection.Close();
+            return actor;
         }
 
-        public Movie getMovie(int id)
+        public string[] getMovie(int id)
         {
-            return null;
+            data_dbConnection.Open();
+            string[] movie = new string[2];
+            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Actor WHERE uid = " + id;
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    movie[0] = reader.GetInt32(0).ToString();
+                    movie[1] = reader.GetString(1);
+                }
+            }
+            data_dbConnection.Close();
+            return movie;
         }
 
         public bool addActor(Actor actor)
