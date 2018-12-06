@@ -120,6 +120,7 @@ namespace FilmeSchauspieler.DataManagement
                         actor[0][count] = reader.GetInt32(0).ToString();
                         actor[1][count] = reader.GetString(1);
                         actors.Add(actor);
+                        count++;
                     }
                 }
             }
@@ -143,6 +144,7 @@ namespace FilmeSchauspieler.DataManagement
                         movie[0][count] = reader.GetInt32(0).ToString();
                         movie[1][count] = reader.GetString(1);
                         movies.Add(movie);
+                        count++;
                     }
                 }
             }
