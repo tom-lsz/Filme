@@ -9,38 +9,14 @@ namespace FilmeSchauspieler.SystemSpecification
 {
     public class SystemSpecificationDesc:ISystemSpecification
     {
-        public List<Movie> getMovies()
+        public List<String> getMovies()
         {
-            List<Movie> returnMovies = this.getMockupMovies(100);
-
-            int counter = 1;
-            int cAct;
-            foreach(Movie m in returnMovies)
-            {
-                cAct = 2 * counter;
-                List<Actor> tempActors = this.getMockupActors(cAct);
-                m.setActors(tempActors);
-                counter++;
-            }
-
-            return returnMovies;
+            return this.getMockupMovies(100);
         }
 
-        public List<Actor> getActors()
+        public List<String> getActors()
         {
-            List<Actor> returnActors = this.getMockupActors();
-
-            int counter = 1;
-            int cMovie;
-            foreach (Actor a in returnActors)
-            {
-                cMovie = 2 * counter;
-                List<Movie> tempMocvie = this.getMockupMovies(cMovie);
-                a.setMovies(tempMocvie);
-                counter++;
-            }
-
-            return returnActors;
+            return this.getMockupActors();
         }
 
         public Actor getActor(int id)
@@ -103,7 +79,7 @@ namespace FilmeSchauspieler.SystemSpecification
             return true;
         }
 
-        protected List<Movie> getMockupMovies(int count = 3)
+        protected List<String> getMockupMovies(int count = 3)
         {
             List<string> test = new List<string>();
 
@@ -112,20 +88,10 @@ namespace FilmeSchauspieler.SystemSpecification
                 test.Add("movie" + count * i);
             }
 
-            List<Movie> returnMovies = new List<Movie>();
-
-            int c = 1;
-            foreach (string s in test)
-            {
-                Movie temp = new Movie(c, s, new List<Actor>());
-                returnMovies.Add(temp);
-                c++;
-            }
-
-            return returnMovies;
+            return test;
         }
 
-        protected List<Actor> getMockupActors(int count = 4)
+        protected List<String> getMockupActors(int count = 4)
         {
             List<string> test = new List<string>();
             int randomNr;
@@ -136,17 +102,8 @@ namespace FilmeSchauspieler.SystemSpecification
                 randomNr = rnd.Next(1, count*count);
                 test.Add("actor" + randomNr.ToString());
             }
-            List<Actor> returnActors = new List<Actor>();
 
-            int c = 1;
-            foreach (string s in test)
-            {
-                Actor temp = new Actor(c, s, new List<Movie>());
-                returnActors.Add(temp);
-                c++;
-            }
-
-            return returnActors;
+            return test;
         }
     }
 }

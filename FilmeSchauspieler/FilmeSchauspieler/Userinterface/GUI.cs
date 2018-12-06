@@ -43,88 +43,71 @@ namespace FilmeSchauspieler.Userinterface
         {
             if (cmb_select.Text == "Filme")
             {
-                Movie tempMovie = (Movie) lib_all.SelectedItem;
-                List<Actor> curActors = tempMovie.getActors();
+                String tempMovie = (String) lib_all.SelectedItem;
+                List<String> curActors = this.systemSpecification.getActors();
                 lb_countprop.Text = "Anzahl der Schauspieler " + curActors.Count.ToString();
-                lib_properly.Items.Clear();
+                lib_properly.DataSource = new List<String>();
 
-                foreach(Actor a in curActors)
-                {
-                    lib_properly.Items.Add(a);
-                }
+                lib_properly.DataSource = curActors;
             }
             else if (cmb_select.Text == "Schauspieler")
             {
-                Actor tempActor = (Actor) lib_all.SelectedItem;
-                List<Movie> curMovies = tempActor.getMovies();
+                String tempActor = (String) lib_all.SelectedItem;
+                List<String> curMovies = this.systemSpecification.getMovies();
                 lb_countprop.Text = "Anzahl der Filme " + curMovies.Count.ToString();
-                lib_properly.Items.Clear();
+                lib_properly.DataSource = new List<String>();
 
-                foreach(Movie m in curMovies)
-                {
-                    lib_properly.Items.Add(m);
-                }
+                lib_properly.DataSource = curMovies;
             }
         }
 
         private void cmb_select_SelectedValueChanged(object sender, EventArgs e)
         {
             lb_countprop.Text = "";
-            lib_all.Items.Clear();
+            lib_all.DataSource = new List<String>();
+
+            List<String> content; 
 
             if (cmb_select.Text == "Filme")
             {
-                List<Movie> temp = systemSpecification.getMovies();
-                lb_countall.Text = "Anzahl der Filme " + temp.Count.ToString();
-                foreach (Movie m in temp)
-                {
-                    lib_all.Items.Add(m);
-                }
+                content = systemSpecification.getMovies();
+                lb_countall.Text = "Anzahl der Filme ";
             }
             else
             {
-                List<Actor> temp = systemSpecification.getActors();
-                lb_countall.Text = "Anzahl der Schauspieler " + temp.Count.ToString();
-                foreach (Actor m in temp)
-                {
-                    lib_all.Items.Add(m);
-                }
+                content = systemSpecification.getActors();
+                lb_countall.Text = "Anzahl der Schauspieler ";
             }
 
-            lib_properly.Items.Clear();
+            lb_countall.Text = lb_countall.Text + content.Count.ToString();
+            lib_all.DataSource = content;
+
+            lib_properly.DataSource = new List<String>();
         }
 
         private void btn_create_Click(object sender, EventArgs e)
         {
             pl_create.Visible = true;
-            lib_existingrecords.Items.Clear();
-            lib_electedrecords.Items.Clear();
+            lib_existingrecords.DataSource = new List<String>();
+            lib_electedrecords.DataSource = new List<String>();
         }
 
         private void cmb_newrecord_SelectedValueChanged(object sender, EventArgs e)
         {
-            lib_existingrecords.Items.Clear();
-            lib_electedrecords.Items.Clear();
+            lib_existingrecords.DataSource = new List<String>();
+            lib_electedrecords.DataSource = new List<String>();
 
             if (cmb_newrecord.Text == "Filme")
             {
                 lb_addentry.Text = "vorhandene Schauspieler";
                 lb_electedrecords.Text = "ausgewählte Schauspieler";
-                List<Actor> temp = systemSpecification.getActors();
-                foreach (Actor m in temp)
-                {
-                    lib_existingrecords.Items.Add(m);
-                }
+                lib_existingrecords.DataSource = systemSpecification.getActors();
             }
             else
             {
                 lb_addentry.Text = "vorhandene Filme";
                 lb_electedrecords.Text = "ausgewählte Filme";
-                List<Movie> temp = systemSpecification.getMovies();
-                foreach (Movie m in temp)
-                {
-                    lib_existingrecords.Items.Add(m);
-                }
+                lib_existingrecords.DataSource = systemSpecification.getMovies();
             }
         }
 
@@ -133,7 +116,7 @@ namespace FilmeSchauspieler.Userinterface
             pl_create.Visible = false;
             cmb_newrecord.SelectedItem = null;
             cmb_select.SelectedItem = null;
-            lib_all.Items.Clear();
+            lib_all.DataSource = new List<String>();
         }
 
         private void btn_addelectedrecord_Click(object sender, EventArgs e)
