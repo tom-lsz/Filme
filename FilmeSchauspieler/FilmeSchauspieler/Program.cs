@@ -11,13 +11,14 @@ namespace FilmeSchauspieler
 {
     static class Program
     {
+
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC");            
+            ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC");   
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
