@@ -11,7 +11,13 @@ namespace FilmeSchauspieler.SystemSpecification
 {
     public class SystemSpecificationAsc:ISystemSpecification
     {
+        private IDataManagement dataManagement;
         
+        public SystemSpecificationAsc(IDataManagement dataManagement)
+        {
+            this.dataManagement = dataManagement;
+        }
+
         public List<String> getMovies()
         {
             List<String> returnMovies = this.getMockupMovies(100);

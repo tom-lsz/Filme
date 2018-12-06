@@ -4,11 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FilmeSchauspieler.Model;
+using FilmeSchauspieler.DataManagement;
 
 namespace FilmeSchauspieler.SystemSpecification
 {
     public class SystemSpecificationDesc:ISystemSpecification
     {
+        private IDataManagement dataManagement;
+
+        public SystemSpecificationDesc(IDataManagement dataManagement)
+        {
+            this.dataManagement = dataManagement;
+        }
+
         public List<String> getMovies()
         {
             return this.getMockupMovies(100);
