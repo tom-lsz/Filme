@@ -22,7 +22,9 @@ namespace FilmeSchauspieler.Userinterface
 
             cmb_select.Items.Add("Filme");
             cmb_select.Items.Add("Schauspieler");
-            cmb_select.SelectedItem = "Filme";
+            cmb_select.SelectedItem = null;
+            cmb_newrecord.Items.Add("Filme");
+            cmb_newrecord.Items.Add("Schauspieler");
         }
 
         public GUI(ISystemSpecification systemSpecification)
@@ -32,7 +34,9 @@ namespace FilmeSchauspieler.Userinterface
 
             cmb_select.Items.Add("Filme");
             cmb_select.Items.Add("Schauspieler");
-            cmb_select.SelectedItem = "Filme";
+            cmb_select.SelectedItem = null;
+            cmb_newrecord.Items.Add("Filme");
+            cmb_newrecord.Items.Add("Schauspieler");
         }
 
         private void lib_all_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,12 +70,12 @@ namespace FilmeSchauspieler.Userinterface
         private void cmb_select_SelectedValueChanged(object sender, EventArgs e)
         {
             lb_countprop.Text = "";
+            lib_all.Items.Clear();
 
             if (cmb_select.Text == "Filme")
             {
                 List<Movie> temp = systemSpecification.getMovies();
                 lb_countall.Text = "Anzahl der Filme " + temp.Count.ToString();
-                lib_all.Items.Clear();
                 foreach (Movie m in temp)
                 {
                     lib_all.Items.Add(m);
@@ -81,7 +85,6 @@ namespace FilmeSchauspieler.Userinterface
             {
                 List<Actor> temp = systemSpecification.getActors();
                 lb_countall.Text = "Anzahl der Schauspieler " + temp.Count.ToString();
-                lib_all.Items.Clear();
                 foreach (Actor m in temp)
                 {
                     lib_all.Items.Add(m);
@@ -89,6 +92,34 @@ namespace FilmeSchauspieler.Userinterface
             }
 
             lib_properly.Items.Clear();
+        }
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            pl_create.Visible = true;
+        }
+
+        private void cmb_newrecord_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lib_existingrecords.Items.Clear();
+
+            if (cmb_newrecord.Text == "Filme")
+            {
+                lb_addentry.Text = "vorhandene Schauspieler";
+                lb_electedrecords.Text = "ausgewählte Schauspieler";
+            }
+            else
+            {
+                lb_addentry.Text = "vorhandene Filme";
+                lb_electedrecords.Text = "ausgewählte Filme";
+            }
+        }
+
+        private void btn_menu_Click(object sender, EventArgs e)
+        {
+            pl_create.Visible = false;
+            cmb_newrecord.SelectedItem = null;
+            cmb_select.SelectedItem = null;
         }
     }
 }

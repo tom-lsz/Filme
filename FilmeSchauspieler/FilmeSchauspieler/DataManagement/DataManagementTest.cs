@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FilmeSchauspieler.Helper;
+using System.Data.SQLite;
 
 namespace FilmeSchauspieler.DataManagement
 {
