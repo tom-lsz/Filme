@@ -45,11 +45,11 @@ namespace FilmeSchauspieler.DataManagement
                         command.ExecuteNonQuery();
                     }
                 }
-                if (!tableExists(data_dbConnection, "Connection"))
+                if (!tableExists(data_dbConnection, "ActorMovie"))
                 {
                     using (SQLiteCommand command = data_dbConnection.CreateCommand())
                     {
-                        command.CommandText = "CREATE TABLE Connection (uid_Actor int, uid_Movie int)";
+                        command.CommandText = "CREATE TABLE ActorMovie (uid_Actor int, uid_Movie int)";
                         command.ExecuteNonQuery();
                     }
                 }
@@ -102,9 +102,25 @@ namespace FilmeSchauspieler.DataManagement
             return count;
         }
 
-        public List<Actor> getActors()
+        public List<string[][]> getActors()
         {
-            List<Actor> actors = new List<Actor>();
+            data_dbConnection.Open();
+            List<string[][]> actors = new List<string[][]>();
+            string[][] actor = new string[2][];
+            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Actor";
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    int count = 0;
+                    while (reader.Read())
+                    {
+                        actor[0][count] = reader.GetInt32(0).ToString();
+                        actor[1][count] = reader.GetString(1);
+                        actors.Add(actor);
+                    }
+                }
+            }
             return actors;
         }
 
