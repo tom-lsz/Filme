@@ -19,7 +19,7 @@ namespace FilmeSchauspieler.SystemSpecification
 
         public List<String> getMovies()
         {
-            return this.getMockupMovies(100);
+            return this.getMockupMovies();
         }
 
         public List<String> getActors()

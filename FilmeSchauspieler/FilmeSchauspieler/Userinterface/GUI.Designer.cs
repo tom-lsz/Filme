@@ -130,7 +130,7 @@
             this.pl_create.Controls.Add(this.lb_name);
             this.pl_create.Controls.Add(this.lb_newrecord);
             this.pl_create.Controls.Add(this.cmb_newrecord);
-            this.pl_create.Location = new System.Drawing.Point(13, 12);
+            this.pl_create.Location = new System.Drawing.Point(12, 12);
             this.pl_create.Name = "pl_create";
             this.pl_create.Size = new System.Drawing.Size(781, 500);
             this.pl_create.TabIndex = 9;
