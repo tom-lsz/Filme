@@ -17,14 +17,14 @@ namespace FilmeSchauspieler
         [STAThread]
         static void Main()
         {
-            ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC");            
+            ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC");
+            DataManagementSql test = new DataManagementSql();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             GUI gui = new GUI(systemSpecification);
             Application.Run(gui);
-            DataManagementTest test = new DataManagementTest();            
         }
     }
 }
