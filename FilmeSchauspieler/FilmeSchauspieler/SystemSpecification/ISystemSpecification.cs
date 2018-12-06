@@ -9,8 +9,8 @@ namespace FilmeSchauspieler.SystemSpecification
 {
     public interface ISystemSpecification
     {
-        List<Movie> getMovies();
-        List<Actor> getActors();
+        List<String> getMovies();
+        List<String> getActors();
         Actor getActor(int id);
         Movie getMovie(int id);
         bool createActor(string name);
