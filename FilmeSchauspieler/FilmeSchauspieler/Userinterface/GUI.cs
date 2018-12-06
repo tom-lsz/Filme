@@ -23,6 +23,7 @@ namespace FilmeSchauspieler.Userinterface
             cmb_select.Items.Add("Filme");
             cmb_select.Items.Add("Schauspieler");
             cmb_select.SelectedItem = null;
+
             cmb_newrecord.Items.Add("Filme");
             cmb_newrecord.Items.Add("Schauspieler");
         }
@@ -35,6 +36,7 @@ namespace FilmeSchauspieler.Userinterface
             cmb_select.Items.Add("Filme");
             cmb_select.Items.Add("Schauspieler");
             cmb_select.SelectedItem = null;
+
             cmb_newrecord.Items.Add("Filme");
             cmb_newrecord.Items.Add("Schauspieler");
         }
@@ -43,19 +45,19 @@ namespace FilmeSchauspieler.Userinterface
         {
             if (cmb_select.Text == "Filme")
             {
-                String tempMovie = (String) lib_all.SelectedItem;
-                List<String> curActors = this.systemSpecification.getActors();
+                KeyValuePair<int, string> tempMovie = (KeyValuePair<int, string>) lib_all.SelectedItem;
+                Dictionary<int, string> curActors = this.systemSpecification.getActors();
                 lb_countprop.Text = "Anzahl der Schauspieler " + curActors.Count.ToString();
-                lib_properly.DataSource = new List<String>();
+                lib_properly.DataSource = new List<string>();
 
-                lib_properly.DataSource = curActors;
+                lib_properly.DataSource = curActors.ToList();
             }
             else if (cmb_select.Text == "Schauspieler")
             {
                 String tempActor = (String) lib_all.SelectedItem;
-                List<String> curMovies = this.systemSpecification.getMovies();
+                Dictionary<int, string> curMovies = this.systemSpecification.getMovies();
                 lb_countprop.Text = "Anzahl der Filme " + curMovies.Count.ToString();
-                lib_properly.DataSource = new List<String>();
+                lib_properly.DataSource = new Dictionary<int, string>();
 
                 lib_properly.DataSource = curMovies;
             }
@@ -64,9 +66,9 @@ namespace FilmeSchauspieler.Userinterface
         private void cmb_select_SelectedValueChanged(object sender, EventArgs e)
         {
             lb_countprop.Text = "";
-            lib_all.DataSource = new List<String>();
+            lib_all.DataSource = new List<string>();
 
-            List<String> content; 
+            Dictionary<int, string> content; 
 
             if (cmb_select.Text == "Filme")
             {
@@ -80,22 +82,23 @@ namespace FilmeSchauspieler.Userinterface
             }
 
             lb_countall.Text = lb_countall.Text + content.Count.ToString();
-            lib_all.DataSource = content;
+            lib_all.DataSource = content.ToList();
 
-            lib_properly.DataSource = new List<String>();
+            lib_properly.DataSource = new List<string>();
         }
 
         private void btn_create_Click(object sender, EventArgs e)
         {
             pl_create.Visible = true;
+
             lib_existingrecords.DataSource = new List<String>();
-            lib_electedrecords.DataSource = new List<String>();
+            lib_electedrecords.Items.Clear();
         }
 
         private void cmb_newrecord_SelectedValueChanged(object sender, EventArgs e)
         {
             lib_existingrecords.DataSource = new List<String>();
-            lib_electedrecords.DataSource = new List<String>();
+            lib_electedrecords.Items.Clear();
 
             if (cmb_newrecord.Text == "Filme")
             {
@@ -116,7 +119,7 @@ namespace FilmeSchauspieler.Userinterface
             pl_create.Visible = false;
             cmb_newrecord.SelectedItem = null;
             cmb_select.SelectedItem = null;
-            lib_all.DataSource = new List<String>();
+            lib_all.DataSource = new Dictionary<int, string>();
         }
 
         private void btn_addelectedrecord_Click(object sender, EventArgs e)
@@ -146,6 +149,7 @@ namespace FilmeSchauspieler.Userinterface
                     lib_electedrecords.Items.Add(add);
                 }
             }
+            lib_electedrecords.Sorted = true;
         }
     }
 }

@@ -9,8 +9,8 @@ namespace FilmeSchauspieler.SystemSpecification
 {
     public interface ISystemSpecification
     {
-        List<String> getMovies();
-        List<String> getActors();
+        Dictionary<int, String> getMovies();
+        Dictionary<int,String> getActors();
         Actor getActor(int id);
         Movie getMovie(int id);
         bool createActor(string name);
@@ -19,8 +19,8 @@ namespace FilmeSchauspieler.SystemSpecification
         bool alterMovie(Movie movie);
         bool deleteActor(Actor actor);
         bool deleteMovie(Movie movie);
-        List<Actor> getActors(Movie movie);
-        List<Movie> getMovies(Actor actor);
+        Dictionary<int, String> getActors(int movieId);
+        Dictionary<int, String> getMovies(int actorId);
         bool addActorToMovie(Actor actor, Movie movie);
         bool removeActorFromMovie(Actor actor, Movie movie);   
     }

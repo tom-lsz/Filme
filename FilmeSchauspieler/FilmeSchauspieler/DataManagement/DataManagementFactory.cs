@@ -10,7 +10,17 @@ namespace FilmeSchauspieler.DataManagement
     {
         public static IDataManagement get(string type)
         {
+            switch (type)
+            {
+                case "SQL":
+                    return new DataManagementSql();
 
+                case "XML":
+                //return new DataManagementXml();
+
+                default:
+                    return new DataManagementSql();
+            }
         }
     }
 }

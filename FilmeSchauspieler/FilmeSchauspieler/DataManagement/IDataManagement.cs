@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FilmeSchauspieler.Model;
 
 namespace FilmeSchauspieler.DataManagement { 
-    interface IDataManagement
+    public interface IDataManagement
     {
         int countActors();
         int countMovies();
