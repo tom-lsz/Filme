@@ -53,6 +53,14 @@ namespace FilmeSchauspieler.DataManagement
                         command.ExecuteNonQuery();
                     }
                 }
+                data_dbConnection.Close();
+                List<Movie> list = new List<Movie>();
+                List<Actor> list1 = new List<Actor>();
+                Actor test = new Actor(1, "Heinz", list);
+                Movie test2 = new Movie(1, "Film", list1);
+                addActor(test);
+                addMovie(test2);
+                
             }
             catch (Exception ex)
             {
@@ -188,11 +196,63 @@ namespace FilmeSchauspieler.DataManagement
 
         public bool addActor(Actor actor)
         {
-            return true;
+            try
+            {
+                data_dbConnection.Open();
+                string query = "SELECT * FROM Actor WHERE name = @name";
+                SQLiteCommand check = new SQLiteCommand(query, data_dbConnection);
+                check.Parameters.AddWithValue("@name", actor.getName());
+                if (check.ExecuteNonQuery() == 0)
+                {
+                    query = "INSERT INTO Actor (uid,name) VALUES ( @uid, @name)";
+                    SQLiteCommand command = new SQLiteCommand(query, data_dbConnection);
+                    command.Parameters.AddWithValue("@uid", actor.getUid());
+                    command.Parameters.AddWithValue("@name", actor.getName());
+                    command.ExecuteNonQuery();
+                }
+                else
+                {
+                    data_dbConnection.Close();
+                    return false;
+                }
+                data_dbConnection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
         public bool addMovie(Movie movie)
         {
-            return true;
+            try
+            {
+                data_dbConnection.Open();
+                string query = "SELECT * FROM Movie WHERE title = @title";
+                SQLiteCommand check = new SQLiteCommand(query, data_dbConnection);
+                check.Parameters.AddWithValue("@title", movie.getTitle());
+                if (check.ExecuteNonQuery() == 0)
+                {
+                    query = "INSERT INTO Movie (uid,title) VALUES ( @uid, @title)";
+                    SQLiteCommand command = new SQLiteCommand(query, data_dbConnection);
+                    command.Parameters.AddWithValue("@uid", movie.getUid());
+                    command.Parameters.AddWithValue("@title", movie.getTitle());
+                    command.ExecuteNonQuery();
+                }
+                else
+                {
+                    data_dbConnection.Close();
+                    return false;
+                }
+                data_dbConnection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public bool alterActor(Actor actor)
