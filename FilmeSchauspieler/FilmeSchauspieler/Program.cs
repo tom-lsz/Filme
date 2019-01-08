@@ -19,7 +19,7 @@ namespace FilmeSchauspieler
         static void Main()
         {
             ISystemSpecification systemSpecification = SystemSpecificationFactory.get("ASC", "SQL");
-
+            DataManagementCsv test = new DataManagementCsv(); 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
