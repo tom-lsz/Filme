@@ -235,21 +235,111 @@ namespace FilmeSchauspieler.DataManagement
 
         public bool alterActor(Actor actor)
         {
-            return true;
+            try
+            {
+                connection.Open();
+                string query = "UPDATE Actor SET name = @name WHERE uid = @uid";
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@name", actor.getName());
+                command.Parameters.AddWithValue("@uid", actor.getUid());
+                command.ExecuteNonQuery();
+                query = "DELETE FROM ActorMovie WHERE uid_Actor = @uidActor";
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@uidActor", actor.getUid());
+                command.ExecuteNonQuery();
+                foreach (Movie movie in actor.getMovies())
+                {
+                    query = "INSERT INTO ActorMovie (uid_Actor, uid_Movie) VALUES (@uidActor, @uidMovie)";
+                    command.CommandText = query;
+                    command.Parameters.AddWithValue("@uidActor", actor.getUid());
+                    command.Parameters.AddWithValue("@uidMovie", movie.getUid());
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
         public bool alterMovie(Movie movie)
         {
-            return true;
+            try
+            {
+                connection.Open();
+                string query = "UPDATE Movie SET title = @title WHERE uid = @uid";
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@title", movie.getTitle());
+                command.Parameters.AddWithValue("@uid", movie.getUid());
+                command.ExecuteNonQuery();
+                query = "DELETE FROM ActorMovie WHERE uid_Movie = @uidMovie";
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@uidMovie", movie.getUid());
+                command.ExecuteNonQuery();
+                foreach (Actor actor in movie.getActors())
+                {
+                    query = "INSERT INTO ActorMovie (uid_Actor, uid_Movie) VALUES (@uidActor, @uidMovie)";
+                    command.CommandText = query;
+                    command.Parameters.AddWithValue("@uidActor", actor.getUid());
+                    command.Parameters.AddWithValue("@uidMovie", movie.getUid());
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
         
         public bool deleteActor(Actor actor)
         {
-            return true;
+            try
+            {
+                connection.Open();
+                string query = "DELETE FROM Actor WHERE uid = @uid";
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@uid", actor.getUid());
+                command.ExecuteNonQuery();
+                query = "DELETE FROM ActorMovie WHERE uid_Actor = @uidActor";
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@uidActor", actor.getUid());
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true; 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public bool deleteMovie(Movie movie)
         {
-            return true;
+            try
+            {
+                connection.Open();
+                string query = "DELETE FROM Movie WHERE uid = @uid";
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@uid", movie.getUid());
+                command.ExecuteNonQuery();
+                query = "DELETE FROM ActorMovie WHERE uid_Movie = @uidMovie";
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@uidmovie", movie.getUid());
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
     }
 }
