@@ -196,5 +196,15 @@ namespace FilmeSchauspieler.Userinterface
                 }
             }
         }
+
+        private void lb_editname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            pl_edit.Visible = true;
+        }
     }
 }

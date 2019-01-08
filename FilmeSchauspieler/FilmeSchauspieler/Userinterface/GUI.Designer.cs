@@ -47,7 +47,17 @@
             this.lb_name = new System.Windows.Forms.Label();
             this.lb_newrecord = new System.Windows.Forms.Label();
             this.cmb_newrecord = new System.Windows.Forms.ComboBox();
+            this.pl_edit = new System.Windows.Forms.Panel();
+            this.tb_editname = new System.Windows.Forms.TextBox();
+            this.lb_editname = new System.Windows.Forms.Label();
+            this.lib_editall = new System.Windows.Forms.ListBox();
+            this.lib_editexisting = new System.Windows.Forms.ListBox();
+            this.bt_editadd = new System.Windows.Forms.Button();
+            this.bt_editremove = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pl_create.SuspendLayout();
+            this.pl_edit.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_select
@@ -91,7 +101,7 @@
             // btn_create
             // 
             this.btn_create.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btn_create.Location = new System.Drawing.Point(15, 450);
+            this.btn_create.Location = new System.Drawing.Point(18, 450);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(231, 62);
             this.btn_create.TabIndex = 5;
@@ -102,12 +112,13 @@
             // btn_edit
             // 
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btn_edit.Location = new System.Drawing.Point(530, 450);
+            this.btn_edit.Location = new System.Drawing.Point(542, 450);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(231, 62);
             this.btn_edit.TabIndex = 7;
             this.btn_edit.Text = "Bearbeiten";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // lb_countprop
             // 
@@ -120,6 +131,7 @@
             // 
             // pl_create
             // 
+            this.pl_create.Controls.Add(this.pl_edit);
             this.pl_create.Controls.Add(this.btn_menu);
             this.pl_create.Controls.Add(this.lb_electedrecords);
             this.pl_create.Controls.Add(this.btn_save);
@@ -133,7 +145,7 @@
             this.pl_create.Controls.Add(this.cmb_newrecord);
             this.pl_create.Location = new System.Drawing.Point(12, 12);
             this.pl_create.Name = "pl_create";
-            this.pl_create.Size = new System.Drawing.Size(781, 500);
+            this.pl_create.Size = new System.Drawing.Size(781, 513);
             this.pl_create.TabIndex = 9;
             this.pl_create.Visible = false;
             // 
@@ -245,6 +257,96 @@
             this.cmb_newrecord.TabIndex = 0;
             this.cmb_newrecord.SelectedIndexChanged += new System.EventHandler(this.cmb_newrecord_SelectedValueChanged);
             // 
+            // pl_edit
+            // 
+            this.pl_edit.Controls.Add(this.button1);
+            this.pl_edit.Controls.Add(this.button3);
+            this.pl_edit.Controls.Add(this.bt_editremove);
+            this.pl_edit.Controls.Add(this.bt_editadd);
+            this.pl_edit.Controls.Add(this.lib_editexisting);
+            this.pl_edit.Controls.Add(this.lib_editall);
+            this.pl_edit.Controls.Add(this.lb_editname);
+            this.pl_edit.Controls.Add(this.tb_editname);
+            this.pl_edit.Location = new System.Drawing.Point(0, 0);
+            this.pl_edit.Name = "pl_edit";
+            this.pl_edit.Size = new System.Drawing.Size(781, 510);
+            this.pl_edit.TabIndex = 11;
+            this.pl_edit.Visible = false;
+            // 
+            // tb_editname
+            // 
+            this.tb_editname.Location = new System.Drawing.Point(93, 28);
+            this.tb_editname.Name = "tb_editname";
+            this.tb_editname.Size = new System.Drawing.Size(359, 20);
+            this.tb_editname.TabIndex = 0;
+            // 
+            // lb_editname
+            // 
+            this.lb_editname.AutoSize = true;
+            this.lb_editname.Location = new System.Drawing.Point(52, 31);
+            this.lb_editname.Name = "lb_editname";
+            this.lb_editname.Size = new System.Drawing.Size(35, 13);
+            this.lb_editname.TabIndex = 1;
+            this.lb_editname.Text = "Name";
+            this.lb_editname.Click += new System.EventHandler(this.lb_editname_Click);
+            // 
+            // lib_editall
+            // 
+            this.lib_editall.FormattingEnabled = true;
+            this.lib_editall.Location = new System.Drawing.Point(43, 75);
+            this.lib_editall.Name = "lib_editall";
+            this.lib_editall.Size = new System.Drawing.Size(225, 329);
+            this.lib_editall.TabIndex = 2;
+            // 
+            // lib_editexisting
+            // 
+            this.lib_editexisting.FormattingEnabled = true;
+            this.lib_editexisting.Location = new System.Drawing.Point(517, 75);
+            this.lib_editexisting.Name = "lib_editexisting";
+            this.lib_editexisting.Size = new System.Drawing.Size(225, 329);
+            this.lib_editexisting.TabIndex = 3;
+            // 
+            // bt_editadd
+            // 
+            this.bt_editadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_editadd.Location = new System.Drawing.Point(302, 103);
+            this.bt_editadd.Name = "bt_editadd";
+            this.bt_editadd.Size = new System.Drawing.Size(186, 63);
+            this.bt_editadd.TabIndex = 4;
+            this.bt_editadd.Text = "Hinzufügen >";
+            this.bt_editadd.UseMnemonic = false;
+            this.bt_editadd.UseVisualStyleBackColor = true;
+            // 
+            // bt_editremove
+            // 
+            this.bt_editremove.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_editremove.Location = new System.Drawing.Point(302, 310);
+            this.bt_editremove.Name = "bt_editremove";
+            this.bt_editremove.Size = new System.Drawing.Size(184, 63);
+            this.bt_editremove.TabIndex = 5;
+            this.bt_editremove.Text = "< Entfernen";
+            this.bt_editremove.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.button3.Location = new System.Drawing.Point(517, 435);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(225, 62);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Hauptmenü";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.button1.Location = new System.Drawing.Point(43, 435);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 62);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Speichern";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +364,8 @@
             this.Text = "GUI";
             this.pl_create.ResumeLayout(false);
             this.pl_create.PerformLayout();
+            this.pl_edit.ResumeLayout(false);
+            this.pl_edit.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,6 +392,15 @@
         private System.Windows.Forms.Label lb_electedrecords;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_menu;
+        private System.Windows.Forms.Panel pl_edit;
+        private System.Windows.Forms.Label lb_editname;
+        private System.Windows.Forms.TextBox tb_editname;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button bt_editremove;
+        private System.Windows.Forms.Button bt_editadd;
+        private System.Windows.Forms.ListBox lib_editexisting;
+        private System.Windows.Forms.ListBox lib_editall;
     }
 }
 
