@@ -13,7 +13,7 @@ namespace FilmeSchauspieler.DataManagement
     class DataManagementSql : IDataManagement
     {
         public string path { get; set; }
-        private SQLiteConnection data_dbConnection { get; set; }
+        private SQLiteConnection connection { get; set; }
         public DataManagementSql()
         {
             try
@@ -27,7 +27,7 @@ namespace FilmeSchauspieler.DataManagement
                     SQLiteConnection.CreateFile(fileActorsMovies);
                 }
                 SQLiteConnection data_dbConnection = new SQLiteConnection("Data Source=" + fileActorsMovies + ";Version=3;");
-                this.data_dbConnection = data_dbConnection;
+                this.connection = data_dbConnection;
                 data_dbConnection.Open();
                 if (!tableExists(data_dbConnection, "Actor"))
                 {
@@ -88,36 +88,36 @@ namespace FilmeSchauspieler.DataManagement
 
         public int countActors()
         {
-            data_dbConnection.Open();
+            connection.Open();
             int count;
-            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            using (SQLiteCommand command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT COUNT(*) FROM Actor";
                 count = command.ExecuteNonQuery();
             }
-            data_dbConnection.Close();
+            connection.Close();
             return count;
         }
 
         public int countMovies()
         {
-            data_dbConnection.Open();
+            connection.Open();
             int count;
-            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            using (SQLiteCommand command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT COUNT(*) FROM Movie";
                 count = command.ExecuteNonQuery();
             }
-            data_dbConnection.Close();
+            connection.Close();
             return count;
         }
 
         public List<string[][]> getActors()
         {
-            data_dbConnection.Open();
+            connection.Open();
             List<string[][]> actors = new List<string[][]>();
             string[][] actor = new string[2][];
-            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            using (SQLiteCommand command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT * FROM Actor";
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -132,16 +132,16 @@ namespace FilmeSchauspieler.DataManagement
                     }
                 }
             }
-            data_dbConnection.Close();
+            connection.Close();
             return actors;
         }
 
         public List<string[][]> getMovies()
         {
-            data_dbConnection.Open();
+            connection.Open();
             List<string[][]> movies = new List<string[][]>();
             string[][] movie = new string[2][];
-            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            using (SQLiteCommand command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT * FROM Movie";
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -156,15 +156,15 @@ namespace FilmeSchauspieler.DataManagement
                     }
                 }
             }
-            data_dbConnection.Close();
+            connection.Close();
             return movies;
         }
 
         public string[] getActor(int id)
         {
-            data_dbConnection.Open();
+            connection.Open();
             string[] actor = new string[2];
-            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            using (SQLiteCommand command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT * FROM Actor WHERE uid = " + id;
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -173,15 +173,15 @@ namespace FilmeSchauspieler.DataManagement
                     actor[1] = reader.GetString(1);
                 }
             }
-            data_dbConnection.Close();
+            connection.Close();
             return actor;
         }
 
         public string[] getMovie(int id)
         {
-            data_dbConnection.Open();
+            connection.Open();
             string[] movie = new string[2];
-            using (SQLiteCommand command = data_dbConnection.CreateCommand())
+            using (SQLiteCommand command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT * FROM Actor WHERE uid = " + id;
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -190,7 +190,7 @@ namespace FilmeSchauspieler.DataManagement
                     movie[1] = reader.GetString(1);
                 }
             }
-            data_dbConnection.Close();
+            connection.Close();
             return movie;
         }
 
@@ -198,24 +198,13 @@ namespace FilmeSchauspieler.DataManagement
         {
             try
             {
-                data_dbConnection.Open();
-                string query = "SELECT * FROM Actor WHERE name = @name";
-                SQLiteCommand check = new SQLiteCommand(query, data_dbConnection);
-                check.Parameters.AddWithValue("@name", actor.getName());
-                if (check.ExecuteNonQuery() == 0)
-                {
-                    query = "INSERT INTO Actor (uid,name) VALUES ( @uid, @name)";
-                    SQLiteCommand command = new SQLiteCommand(query, data_dbConnection);
-                    command.Parameters.AddWithValue("@uid", actor.getUid());
-                    command.Parameters.AddWithValue("@name", actor.getName());
-                    command.ExecuteNonQuery();
-                }
-                else
-                {
-                    data_dbConnection.Close();
-                    return false;
-                }
-                data_dbConnection.Close();
+                connection.Open();
+                string query = "INSERT INTO Actor (uid,name) VALUES ( @uid, @name)";
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@uid", actor.getUid());
+                command.Parameters.AddWithValue("@name", actor.getName());
+                command.ExecuteNonQuery();
+                connection.Close();
                 return true;
             }
             catch (Exception ex)
@@ -228,24 +217,13 @@ namespace FilmeSchauspieler.DataManagement
         {
             try
             {
-                data_dbConnection.Open();
-                string query = "SELECT * FROM Movie WHERE title = @title";
-                SQLiteCommand check = new SQLiteCommand(query, data_dbConnection);
-                check.Parameters.AddWithValue("@title", movie.getTitle());
-                if (check.ExecuteNonQuery() == 0)
-                {
-                    query = "INSERT INTO Movie (uid,title) VALUES ( @uid, @title)";
-                    SQLiteCommand command = new SQLiteCommand(query, data_dbConnection);
-                    command.Parameters.AddWithValue("@uid", movie.getUid());
-                    command.Parameters.AddWithValue("@title", movie.getTitle());
-                    command.ExecuteNonQuery();
-                }
-                else
-                {
-                    data_dbConnection.Close();
-                    return false;
-                }
-                data_dbConnection.Close();
+                connection.Open();
+                string query = "INSERT INTO Movie (uid,title) VALUES ( @uid, @title)";
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@uid", movie.getUid());
+                command.Parameters.AddWithValue("@title", movie.getTitle());
+                command.ExecuteNonQuery();
+                connection.Close();
                 return true;
             }
             catch (Exception ex)
